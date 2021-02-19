@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using System.Diagnostics
+@using MVCTest.Models
+@using RestSharp
+@using System.Collections.Generic;
+@using Newtonsoft.Json
+@using Newtonsoft.Json.Linq
+@using MVCTest.Helper
+<!----------------------------------->
+
+
+<h3>This is a Foo component.</h3>
+<button @onclick="ccc">Click me!</button>
+
+<!----------------------------------->
+
+
+@code {
+    public List<MVCTest.Models.Foo> message { get; set; }
+
+    public void ccc()
+    {
+        var client = new RestClient("https://localhost:44352/api/TestAPI");
+        client.Timeout = -1;
+        var request = new RestRequest(Method.GET);
+        IRestResponse response = client.Execute(request);
+
+        
+        IList<PdStaticMrtStop> result;
+
+        // Call the deserializer  
+        result = JsonHelper.DeserializeToList<PdStaticMrtStop>(response.Content);
+        Debug.WriteLine(result);
+
+    }
+
+    }
+
+
+<!----------------------------------->

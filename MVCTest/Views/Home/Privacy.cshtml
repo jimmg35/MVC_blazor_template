@@ -1,0 +1,22 @@
+﻿@model List<MVCTest.Models.Foo>
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+<component type="typeof(MVCTest.Components.Pages.Foo)"
+           render-mode="ServerPrerendered"/>
+
+
+
+
+
+@section Scripts{
+    <script src="_framework/blazor.server.js"></script>
+}

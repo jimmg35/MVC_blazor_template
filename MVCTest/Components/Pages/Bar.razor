@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Components.Web
+@using System.Diagnostics
+@using MVCTest.Models
+<!----------------------------------->
+
+<p>@message[0].Stationname</p>
+
+<!----------------------------------->
+
+
+@code {
+    [Parameter]
+    public List<PdStaticMrtStop> message { get; set; }
+
+    [Parameter]
+    public int alala { get; set; }
+}
+
+
+<!----------------------------------->
